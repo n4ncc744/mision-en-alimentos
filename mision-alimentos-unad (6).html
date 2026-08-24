@@ -299,109 +299,145 @@ const CHALLENGES = [
   {
     id: 1,
     icon: "🏫",
-    eyebrow: "Reto 1 de 5",
-    title: "¿Quién soy?",
-    scenario: "Acabas de ingresar a la UNAD. Tu primer desafío es identificar las características que hacen parte de esta modalidad de formación.",
-    question: "¿Cuáles de las siguientes características corresponden a la metodología de la UNAD? Selecciona todas las correctas.",
+    eyebrow: "Reto 1 de 8",
+    title: "¿Cómo estudias en la UNAD?",
+    scenario: "Acabas de ingresar a la UNAD. Este es tu primer reto: reconocer cómo funciona tu forma de estudiar aquí.",
+    question: "¿Cuál de estas frases describe cómo se estudia en la UNAD?",
     options: [
-      { text: "🧠 Aprendizaje autónomo", correct: true },
-      { text: "⏰ El estudiante organiza su propio ritmo de estudio", correct: true },
-      { text: "🌎 Educación abierta y a distancia", correct: true },
-      { text: "📚 Se adapta a las necesidades de cada estudiante", correct: true },
-      { text: "🏢 Asistencia presencial obligatoria todos los días", correct: false },
-      { text: "🤖 El docente realiza todas las actividades por el estudiante", correct: false },
+      { text: "🏢 Debo ir todos los días a un salón de clase", correct: false },
+      { text: "🌎 Estudio a distancia y organizo mi propio tiempo", correct: true },
+      { text: "🤖 El docente hace las actividades por mí", correct: false },
+      { text: "📅 Solo puedo estudiar los fines de semana", correct: false },
     ],
-    goodMsg: "La UNAD trabaja bajo una modalidad abierta y a distancia: fomenta el aprendizaje autónomo, se adapta a tus necesidades y te permite marcar tu propio ritmo.",
+    goodMsg: "¡Correcto! La UNAD es una universidad abierta y a distancia: tú organizas tu tiempo y avanzas a tu propio ritmo.",
+    badMsg: "No es así. La UNAD es abierta y a distancia: tú organizas tu propio tiempo de estudio, sin ir todos los días a un salón.",
     fragment: "ALI",
   },
   {
     id: 2,
-    icon: "🧪",
-    eyebrow: "Reto 2 de 5",
-    title: "Conoce tu programa",
-    scenario: "🥛 Una empresa quiere desarrollar un nuevo yogur. Como futuro(a) Ingeniero(a) de Alimentos, debes identificar qué áreas del programa podrían intervenir en ese proceso.",
-    question: "Selecciona las áreas clave del programa que aplicarían en este caso.",
+    icon: "📞",
+    eyebrow: "Reto 2 de 8",
+    title: "Conducto regular",
+    scenario: "Si alguna vez tienes una duda o un problema en tu curso, existe un orden correcto de a quién acudir primero.",
+    question: "Siguiendo el conducto regular, ¿a quién debes acudir PRIMERO?",
     options: [
-      { text: "🧪 Química y microbiología de alimentos", correct: true },
-      { text: "⚙️ Ingeniería de procesos alimentarios", correct: true },
-      { text: "✅ Gestión de la calidad alimentaria", correct: true },
-      { text: "🔬 Investigación en ciencia de alimentos", correct: true },
-      { text: "🎨 Diseño gráfico industrial", correct: false },
-      { text: "💰 Finanzas internacionales", correct: false },
+      { text: "🎓 Al Tutor del curso", correct: true },
+      { text: "🏫 Al Decano de la escuela", correct: false },
+      { text: "👩‍💼 A la Líder de la Cadena de Alimentos", correct: false },
+      { text: "📋 Al Director de curso", correct: false },
     ],
-    goodMsg: "Estas cuatro son justamente las áreas clave del programa de Ingeniería de Alimentos.",
-    bonus: {
-      question: "🎁 Pregunta bonus: ¿cuántos créditos académicos tiene el programa de Ingeniería de Alimentos?",
-      options: ["120", "140", "152", "160"],
-      correctIndex: 2,
-    },
-    fragment: "MEN",
-  },
-  {
-    id: 3,
-    icon: "🏭",
-    eyebrow: "Reto 3 de 5",
-    title: "Salva la planta",
-    scenario: "🚨 ¡Alerta! Una empresa de alimentos detectó un producto con problemas de calidad. Se necesita identificar las causas, mejorar el proceso y garantizar que el alimento sea seguro.",
-    question: "¿Qué áreas del Ingeniero de Alimentos deben intervenir para resolver esta situación?",
-    options: [
-      { text: "🧪 Química y microbiología", correct: true },
-      { text: "⚙️ Ingeniería de procesos", correct: true },
-      { text: "✅ Gestión de calidad", correct: true },
-      { text: "🔬 Investigación", correct: true },
-      { text: "📢 Marketing digital", correct: false },
-      { text: "🚚 Logística internacional", correct: false },
-    ],
-    goodMsg: "Exacto: resolver un problema real de producción requiere combinar química y microbiología, procesos, calidad e investigación.",
-    fragment: "TOS",
-  },
-  {
-    id: 4,
-    icon: "🧑‍🔬",
-    eyebrow: "Reto 4 de 5",
-    title: "Construye tu perfil",
-    scenario: "Cada estudiante va formando, con el tiempo, un perfil profesional. Identifica qué características debes fortalecer durante tu formación como Ingeniero(a) de Alimentos.",
-    question: "Selecciona las características que forman parte de tu perfil como estudiante.",
-    options: [
-      { text: "🧠 Autónomo", correct: true },
-      { text: "🔬 Investigativo", correct: true },
-      { text: "🤝 Sentido social", correct: true },
-      { text: "✅ Manejo de sistemas de calidad", correct: true },
-      { text: "📚 Conocimientos sólidos", correct: true },
-      { text: "🔥 Actitud motivacional", correct: true },
-      { text: "❌ Depender siempre del docente", correct: false },
-      { text: "❌ Evitar la investigación", correct: false },
-      { text: "❌ Trabajar sin criterios de calidad", correct: false },
-    ],
-    goodMsg: "Ya identificaste las características que te acompañarán durante tu formación como Ingeniero(a) de Alimentos.",
+    goodMsg: "¡Correcto! El primer paso siempre es tu Tutor del curso. Si no se resuelve, sigue el Director de curso, y luego la Líder de la Cadena.",
+    badMsg: "No es así. El primer paso del conducto regular es siempre tu Tutor del curso.",
     fragment: "★",
   },
   {
-    id: 5,
-    icon: "🔬",
-    eyebrow: "Reto 5 de 5",
-    title: "Entra al laboratorio de investigación",
-    scenario: "🔬 Has descubierto que puedes participar en un semillero de investigación de la Cadena de Formación en Alimentos. Pero... ¿qué oportunidades puedes encontrar allí?",
-    question: "Selecciona todas las oportunidades reales que ofrece un semillero de investigación.",
+    id: 3,
+    icon: "🎓",
+    eyebrow: "Reto 3 de 8",
+    title: "Conoce tu programa",
+    scenario: "Todo programa universitario se mide en créditos académicos. Vamos a ver cuántos tiene el tuyo.",
+    question: "¿Cuántos créditos académicos tiene el programa de Ingeniería de Alimentos?",
     options: [
-      { text: "Iniciar actividades como investigador", correct: true },
-      { text: "Participar en eventos de investigación", correct: true },
-      { text: "Recibir capacitación en temas específicos", correct: true },
-      { text: "Acceder a financiación de proyectos de investigación", correct: true },
-      { text: "Desarrollar opciones de trabajo de grado", correct: true },
-      { text: "Recibir apoyo para postulaciones y estímulos científicos", correct: true },
-      { text: "❌ Garantiza empleo inmediato al graduarte", correct: false },
-      { text: "❌ Reemplaza las materias del programa", correct: false },
+      { text: "120 créditos", correct: false },
+      { text: "140 créditos", correct: false },
+      { text: "152 créditos", correct: true },
+      { text: "160 créditos", correct: false },
     ],
-    goodMsg: "Los semilleros son comunidades de aprendizaje de estudiantes y docentes que impulsan la formación de futuros investigadores.",
+    goodMsg: "¡Exacto! El programa de Ingeniería de Alimentos tiene 152 créditos académicos.",
+    badMsg: "Casi. El número correcto es 152 créditos académicos.",
+    fragment: "MEN",
+  },
+  {
+    id: 4,
+    icon: "🧪",
+    eyebrow: "Reto 4 de 8",
+    title: "Áreas de tu programa",
+    scenario: "Tu programa se enfoca en algunas áreas clave del mundo de los alimentos. Identifica cuál de estas SÍ hace parte de tu programa.",
+    question: "¿Cuál de estas es un área clave de Ingeniería de Alimentos?",
+    options: [
+      { text: "🎨 Diseño gráfico", correct: false },
+      { text: "🧪 Química y microbiología de alimentos", correct: true },
+      { text: "💰 Finanzas internacionales", correct: false },
+      { text: "🚚 Logística internacional", correct: false },
+    ],
+    goodMsg: "¡Así es! La química y microbiología de alimentos es una de las áreas clave, junto con procesos, calidad e investigación.",
+    badMsg: "No es esa. La química y microbiología de alimentos sí es un área clave de tu programa.",
+    fragment: "TOS",
+  },
+  {
+    id: 5,
+    icon: "💼",
+    eyebrow: "Reto 5 de 8",
+    title: "Rumbo a la práctica profesional",
+    scenario: "Más adelante, cuando avances en tu programa, vas a poder iniciar tu práctica profesional — pero hay un requisito de créditos que debes cumplir antes.",
+    question: "¿Qué porcentaje mínimo de créditos académicos debes tener aprobados para iniciar tu práctica profesional?",
+    options: [
+      { text: "60%", correct: false },
+      { text: "70%", correct: false },
+      { text: "80%", correct: true },
+      { text: "90%", correct: false },
+    ],
+    goodMsg: "¡Correcto! Necesitas haber cursado y aprobado como mínimo el 80% de los créditos de tu programa antes de iniciar la práctica.",
+    badMsg: "No es ese. El requisito mínimo es haber aprobado el 80% de los créditos de tu programa.",
+    fragment: "★",
+  },
+  {
+    id: 6,
+    icon: "🧑‍🔬",
+    eyebrow: "Reto 6 de 8",
+    title: "Tu perfil como estudiante",
+    scenario: "Con el tiempo vas a ir formando tu perfil profesional. Piensa qué actitud te ayuda más a crecer como Ingeniero(a) de Alimentos.",
+    question: "¿Qué actitud te ayuda más a formarte como Ingeniero(a) de Alimentos?",
+    options: [
+      { text: "🧠 Ser autónomo e investigativo", correct: true },
+      { text: "😴 Depender siempre del docente", correct: false },
+      { text: "🙅 Evitar la investigación", correct: false },
+      { text: "⚠️ No preocuparme por la calidad de mi trabajo", correct: false },
+    ],
+    goodMsg: "¡Correcto! Ser autónomo, investigativo y responsable es justo el perfil que la UNAD busca en sus estudiantes.",
+    badMsg: "No es esa. Lo ideal es ser autónomo e investigativo, no depender siempre del docente.",
+    fragment: "★",
+  },
+  {
+    id: 7,
+    icon: "🤝",
+    eyebrow: "Reto 7 de 8",
+    title: "CIPAS de Primera Matrícula",
+    scenario: "Las CIPAS son comunidades de aprendizaje entre estudiantes y docentes. Como estás en tu primera matrícula, puedes participar en sesiones pensadas justo para ti.",
+    question: "Si participas en las 2 sesiones de CIPAS de Primera Matrícula (25 puntos cada una), ¿cuántos puntos puedes obtener en total?",
+    options: [
+      { text: "25 puntos", correct: false },
+      { text: "50 puntos", correct: true },
+      { text: "75 puntos", correct: false },
+      { text: "100 puntos", correct: false },
+    ],
+    goodMsg: "¡Exacto! Cada sesión de CIPAS de Primera Matrícula vale 25 puntos, así que participando en las 2 obtienes 50 puntos.",
+    badMsg: "No es ese. Cada sesión vale 25 puntos, así que las 2 sesiones juntas suman 50 puntos.",
+    fragment: "★",
+  },
+  {
+    id: 8,
+    icon: "🔬",
+    eyebrow: "Reto 8 de 8",
+    title: "Semilleros de investigación",
+    scenario: "🔬 Descubriste que puedes participar en un semillero de investigación de la Cadena de Formación en Alimentos.",
+    question: "¿Qué puedes lograr si participas en un semillero de investigación?",
+    options: [
+      { text: "🎓 Aprender a investigar y participar en eventos científicos", correct: true },
+      { text: "💼 Te garantiza empleo inmediato", correct: false },
+      { text: "📚 Reemplaza las materias de tu programa", correct: false },
+      { text: "🚫 Es solo para docentes", correct: false },
+    ],
+    goodMsg: "¡Exacto! Un semillero te da la oportunidad de iniciarte como investigador, capacitarte y participar en eventos científicos.",
+    badMsg: "No es así. Un semillero te da la oportunidad de investigar y capacitarte, no reemplaza tus materias ni es solo para docentes.",
     fragment: "★",
   },
 ];
 
 const RANKS = [
-  { min: 320, label: "🥇 Ingeniero(a) de Alimentos Élite" },
-  { min: 220, label: "🥈 Ingeniero(a) de Alimentos en formación" },
-  { min: 140, label: "🥉 Aprendiz de la industria alimentaria" },
+  { min: 260, label: "🥇 Ingeniero(a) de Alimentos Élite" },
+  { min: 180, label: "🥈 Ingeniero(a) de Alimentos en formación" },
+  { min: 100, label: "🥉 Aprendiz de la industria alimentaria" },
   { min: 0,   label: "🔄 ¡Necesitas repetir la misión!" },
 ];
 
@@ -457,7 +493,7 @@ function renderTopbar(){
 
 /* ===================== TRAIL ===================== */
 function renderTrail(){
-  const icons = ["🏫","🧪","🏭","🧑‍🔬","🔬","🔐"];
+  const icons = ["🏫","📞","🎓","🧪","💼","🧑‍🔬","🤝","🔬","🔐"];
   const total = icons.length;
   if (state.screen === "records"){ trailEl.style.display = "none"; return; }
   trailEl.style.display = "flex";
@@ -490,16 +526,19 @@ function renderIntro(){
       <span class="eyebrow">Cierre de inducción</span>
       <h1 class="title">🧪 Misión: Ingeniero(a) de Alimentos UNAD</h1>
       <p class="lead">Has iniciado tu camino como estudiante de Ingeniería de Alimentos. Para completar tu misión deberás demostrar que conoces tu universidad, tu programa, tu perfil profesional y las oportunidades que tienes como estudiante.</p>
-      <div class="scenario">🔐 Supera los 5 retos y descubre el código final que certifica tu misión.</div>
+      <div class="scenario">🔐 Supera los 8 retos y descubre el código final que certifica tu misión.</div>
       <div class="stations">
-        <div class="station"><span class="num">1</span> <b>Conoce la UNAD</b> — metodología y modalidad</div>
-        <div class="station"><span class="num">2</span> <b>Conoce el programa</b> — áreas clave y créditos</div>
-        <div class="station"><span class="num">3</span> <b>Salva la planta</b> — aplica lo aprendido</div>
-        <div class="station"><span class="num">4</span> <b>Tu perfil</b> — características del estudiante</div>
-        <div class="station"><span class="num">5</span> <b>Investigación</b> — semilleros y oportunidades</div>
+        <div class="station"><span class="num">1</span> <b>Cómo estudias en la UNAD</b></div>
+        <div class="station"><span class="num">2</span> <b>Conducto regular</b></div>
+        <div class="station"><span class="num">3</span> <b>Conoce tu programa</b> — créditos</div>
+        <div class="station"><span class="num">4</span> <b>Áreas de tu programa</b></div>
+        <div class="station"><span class="num">5</span> <b>Práctica profesional</b></div>
+        <div class="station"><span class="num">6</span> <b>Tu perfil</b> como estudiante</div>
+        <div class="station"><span class="num">7</span> <b>CIPAS</b> de Primera Matrícula</div>
+        <div class="station"><span class="num">8</span> <b>Semilleros</b> de investigación</div>
       </div>
       <div class="btn-row" style="margin-top:24px;">
-        <span style="font-size:13px;color:var(--text-dim);">⏱ Dura entre 15–20 minutos</span>
+        <span style="font-size:13px;color:var(--text-dim);">⏱ Dura entre 10–15 minutos</span>
         <button class="btn btn-primary" onclick="startMission()">🚀 Iniciar misión</button>
       </div>
     </div>
@@ -511,50 +550,32 @@ function startMission(){
   render();
 }
 
-/* ===================== CHALLENGE ===================== */
+/* ===================== CHALLENGE (selección única) ===================== */
 function renderChallenge(){
   const c = CHALLENGES[state.current];
-  if (!state.selections[state.current]) state.selections[state.current] = [];
-  const sel = state.selections[state.current];
+  if (state.selections[state.current] === undefined) state.selections[state.current] = null;
+  const sel = state.selections[state.current]; // número o null
 
   const optsHtml = c.options.map((o, i) => {
     let cls = "opt";
     if (state.locked){
       cls += " locked";
       if (o.correct) cls += " correct";
-      else if (sel.includes(i)) cls += " incorrect";
-    } else if (sel.includes(i)) {
+      else if (sel === i) cls += " incorrect";
+    } else if (sel === i) {
       cls += " selected";
     }
-    const mark = state.locked ? (o.correct ? "✓" : (sel.includes(i) ? "✕" : "")) : (sel.includes(i) ? "✓" : "");
-    return `<div class="${cls}" onclick="toggleOption(${i})">
+    const mark = state.locked ? (o.correct ? "✓" : (sel === i ? "✕" : "")) : (sel === i ? "●" : "");
+    return `<div class="${cls}" onclick="selectOption(${i})">
       <span class="check">${mark}</span><span>${o.text}</span>
     </div>`;
   }).join("");
 
-  let bonusHtml = "";
-  if (c.bonus){
-    const bOpts = c.bonus.options.map((txt, i) => {
-      let cls = "opt";
-      if (state.bonusAnswered){
-        cls += " locked";
-        if (i === c.bonus.correctIndex) cls += " correct";
-        else if (state.bonusSelected === i) cls += " incorrect";
-      } else if (state.bonusSelected === i){
-        cls += " selected";
-      }
-      return `<div class="${cls}" onclick="pickBonus(${i})"><span class="check"></span><span>${txt} créditos</span></div>`;
-    }).join("");
-    bonusHtml = `
-      <p style="font-size:14.5px;font-weight:600;margin:22px 0 10px;">${c.bonus.question}</p>
-      <div class="options">${bOpts}</div>
-    `;
-  }
-
+  const isCorrect = state.locked && sel !== null && c.options[sel] && c.options[sel].correct;
   const feedbackHtml = state.locked ? `
-    <div class="feedback good show">
-      <div class="feedback-title">✅ ¡Bien hecho!</div>
-      ${c.goodMsg}
+    <div class="feedback ${isCorrect ? "good" : "meh"} show">
+      <div class="feedback-title">${isCorrect ? "✅ ¡Bien hecho!" : "💡 Aprendamos algo nuevo"}</div>
+      ${isCorrect ? c.goodMsg : c.badMsg}
       <div class="points-pill">+${challengePoints()} puntos</div>
     </div>
   ` : "";
@@ -567,12 +588,11 @@ function renderChallenge(){
       <div class="scenario">${c.scenario}</div>
       <p style="font-size:14.5px;font-weight:600;margin:0 0 12px;">${c.question}</p>
       <div class="options">${optsHtml}</div>
-      ${bonusHtml}
       ${feedbackHtml}
       <div class="btn-row" style="margin-top:22px;">
-        <button class="btn btn-ghost" onclick="resetSelection()" ${state.locked ? "disabled style='opacity:.3'" : ""}>Limpiar selección</button>
+        <span></span>
         ${!state.locked
-          ? `<button class="btn btn-primary" onclick="confirmChallenge()" ${sel.length===0?"disabled":""}>Confirmar respuesta</button>`
+          ? `<button class="btn btn-primary" onclick="confirmChallenge()" ${sel===null?"disabled":""}>Confirmar respuesta</button>`
           : `<button class="btn btn-primary" onclick="nextChallenge()">Continuar →</button>`
         }
       </div>
@@ -580,37 +600,18 @@ function renderChallenge(){
   `;
 }
 
-function toggleOption(i){
+function selectOption(i){
   if (state.locked) return;
-  const sel = state.selections[state.current];
-  const idx = sel.indexOf(i);
-  if (idx === -1) sel.push(i); else sel.splice(idx, 1);
-  renderChallenge();
-}
-function resetSelection(){
-  if (state.locked) return;
-  state.selections[state.current] = [];
-  renderChallenge();
-}
-function pickBonus(i){
-  if (state.bonusAnswered) return;
-  state.bonusSelected = i;
+  state.selections[state.current] = i;
   renderChallenge();
 }
 function challengePoints(){
   const c = CHALLENGES[state.current];
   const sel = state.selections[state.current];
-  let pts = 0;
-  c.options.forEach((o, i) => {
-    if (o.correct && sel.includes(i)) pts += 10;
-    if (!o.correct && sel.includes(i)) pts -= 5;
-  });
-  pts += 20; // bono por completar el reto
-  if (c.bonus && state.bonusSelected === c.bonus.correctIndex) pts += 10;
-  return Math.max(pts, 0);
+  const correct = sel !== null && c.options[sel] && c.options[sel].correct;
+  return correct ? 30 : 10; // siempre suma algo, más si acierta
 }
 function confirmChallenge(){
-  if (CHALLENGES[state.current].bonus) state.bonusAnswered = true;
   state.locked = true;
   const pts = challengePoints();
   state.score += pts;
@@ -621,8 +622,6 @@ function confirmChallenge(){
 }
 function nextChallenge(){
   state.locked = false;
-  state.bonusAnswered = false;
-  state.bonusSelected = null;
   if (state.current < CHALLENGES.length - 1){
     state.current += 1;
     render();
