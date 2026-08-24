@@ -419,6 +419,27 @@ let state = {
 
 let records = []; // se acumulan mientras la página siga abierta (no hay servidor)
 
+/* ===================== GOOGLE FORM (registro centralizado) ===================== */
+const GOOGLE_FORM_RESPONSE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd1-AshmfX18vguHe00OAqnBLoy7AqB2khDjrh7YMYnwbs3sw/formResponse";
+const GOOGLE_FORM_FIELDS = {
+  nombre: "entry.1454484834",
+  puntaje: "entry.928272524",
+  nivel: "entry.2075819927",
+  fecha: "entry.873747836",
+};
+function submitToGoogleForm(record){
+  const body = new URLSearchParams();
+  body.append(GOOGLE_FORM_FIELDS.nombre, record.name);
+  body.append(GOOGLE_FORM_FIELDS.puntaje, String(record.score));
+  body.append(GOOGLE_FORM_FIELDS.nivel, record.rank);
+  body.append(GOOGLE_FORM_FIELDS.fecha, record.fecha);
+  fetch(GOOGLE_FORM_RESPONSE_URL, {
+    method: "POST",
+    mode: "no-cors", // Google Forms no permite leer la respuesta, pero sí recibe el envío
+    body,
+  }).catch(() => {}); // si no hay internet, no rompe el juego
+}
+
 const screenEl = document.getElementById("screen");
 const trailEl = document.getElementById("trail");
 const topbarEl = document.getElementById("topbar");
@@ -657,9 +678,10 @@ function renderDiploma(){
         <div class="score-final">Puntaje final: <b style="color:var(--lime);">${state.score}</b> puntos</div>
       </div>
       <p style="font-size:13px;color:var(--text-dim);">Recuerda: ser Ingeniero(a) de Alimentos no consiste solamente en aprobar cursos. Es aprender, investigar, innovar, trabajar con calidad y generar soluciones para la sociedad.</p>
+      <div id="registroStatus" style="text-align:center;font-size:13px;color:var(--text-dim);margin-top:6px;"></div>
       <div class="btn-row" style="margin-top:16px;">
-        <button class="btn btn-ghost" onclick="restart()">↺ Repetir sin registrar</button>
-        <button class="btn btn-primary" onclick="logAndRestart()">✅ Registrar y siguiente turno</button>
+        <button class="btn btn-ghost" onclick="restart()">↺ Jugar de nuevo</button>
+        <button class="btn btn-primary" onclick="registrarResultado()">✅ Registrar mi resultado</button>
       </div>
     </div>
   `;
@@ -671,17 +693,25 @@ function restart(){
   render();
 }
 
-function logAndRestart(){
+function registrarResultado(){
   const nameEl = document.getElementById("studentName");
-  const name = (nameEl && nameEl.value.trim()) ? nameEl.value.trim() : "Sin nombre";
+  const statusEl = document.getElementById("registroStatus");
+  const name = (nameEl && nameEl.value.trim()) ? nameEl.value.trim() : "";
+  if (!name){
+    if (statusEl) statusEl.innerHTML = "⚠️ Escribe tu nombre arriba antes de registrar.";
+    return;
+  }
   const rank = RANKS.find(r => state.score >= r.min);
-  records.push({
+  const record = {
     name,
     score: state.score,
     rank: rank.label,
     fecha: new Date().toLocaleString("es-CO"),
-  });
-  restart();
+  };
+  records.push(record);           // registro local de esta sesión (para el CSV)
+  submitToGoogleForm(record);     // envío centralizado a tu Google Sheet
+  if (statusEl) statusEl.innerHTML = "✅ ¡Registrado! Ya puedes cerrar o jugar de nuevo.";
+  renderTopbar();
 }
 
 /* ===================== RECORDS SCREEN ===================== */
